@@ -8,6 +8,8 @@ PacmanGame::PacmanGame(int screenWidth, int screenHeight, int frameLimit)
     mWindow = new sf::RenderWindow(sf::VideoMode(screenWidth, screenHeight), "dPacMan");
     mWindow->setFramerateLimit(frameLimit);
 
+    mScreenWidth = screenWidth;
+    mScreenHeight = screenHeight;
 }
 
 PacmanGame::~PacmanGame()
@@ -30,15 +32,30 @@ void PacmanGame::run()
 void PacmanGame::update()
 {
     // check events
-
-
-
+    sf::Event ev;
+    while (mWindow->pollEvent(ev))
+    {
+        switch (ev.type)
+        {
+            case sf::Event::Closed:
+                gameIsOver = true;
+                mWindow->close();
+                break;
+        }
+    }
     return;
 }
 
 
-// draws everything to the screen 
+// draws everything to the screen
 void PacmanGame::draw()
 {
-    return;
+    mWindow->clear(sf::Color::Black);
+
+    /*
+    render stuff
+    */
+
+   mWindow->display();
+   return;
 }

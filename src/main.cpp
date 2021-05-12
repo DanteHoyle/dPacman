@@ -8,7 +8,8 @@ Function: Where the application object is created and ran
 
 int main()
 {
-    std::cout << "Hello World!!!\n";
+    PacmanGame game;
+    game.run();
 
     return 0;
 }

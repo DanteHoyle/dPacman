@@ -34,9 +34,21 @@ public:
         FRIGHTENED
     };
 
-    PacmanGame(int screenWidth, int screenHeight, int frameLimit);
+    // constructor
+    PacmanGame(int screenWidth = DPC::SCREEN_WIDTH,
+               int screenHeight = DPC::SCREEN_HEIGHT,
+               int frameLimit = DPC::FRAME_LIMIT);
+    ~PacmanGame();
 
-    int mSreenWidth,
+    // function that starts the game
+    void run();
+
+private:
+    void update();
+    void draw();
+    void exit();
+
+    int mScreenWidth,
         mScreenHeight,
         mframeLimit;
     
@@ -46,17 +58,6 @@ public:
     ghostState mGhostState;
     bool gameIsOver = false;
 
-    void run();
-
-private:
-    void update();
-
-    void draw();
-
-    void exit();
-
 };
-
-
 
 #endif
